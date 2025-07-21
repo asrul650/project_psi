@@ -1,0 +1,1704 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@500;700&display=swap');
+
+:root {
+    --primary-color: #7B1FA2; /* Deep Purple */
+    --secondary-color: #FFEB3B; /* Bright Yellow / Gold */
+    --dark-text: #E0E0E0; /* Light grey for dark backgrounds */
+    --light-text: #FFFFFF; /* Pure White */
+    --bg-light: #212121; /* Dark Grey for light background areas */
+    --bg-dark: #121212; /* Very Dark Grey / Near Black for main backgrounds */
+    --accent-red: #D32F2F; /* Accent Red */
+    --accent-blue: #1976D2; /* Accent Blue */
+    --button-bg: #4CAF50; /* A vibrant button green */
+    --button-hover: #388E3C; /* Darker button green on hover */
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    background-color: var(--bg-dark); /* Menggunakan dark background */
+    color: var(--dark-text); /* Menggunakan light text di dark background */
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--bg-dark);
+    color: var(--light-text);
+    padding: 0.5rem 0; /* Kembali ke padding awal */
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Shadow lebih gelap */
+    position: relative; /* Tambahkan positioning */
+    z-index: 1000; /* Pastikan header di atas konten lain */
+}
+
+header h1 {
+    margin: 0; /* Kembali ke margin awal */
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.8rem;
+    color: var(--secondary-color);
+    letter-spacing: 2px; /* Lebih lebar */
+    text-shadow: 0 0 15px rgba(255, 235, 59, 0.6); /* Efek glow pada judul */
+}
+
+/* Sesuaikan nav ul kembali ke pengaturan awal */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0; /* Kembali ke margin awal */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.15rem; /* Ukuran font lebih besar */
+    transition: color 0.3s ease, transform 0.2s ease;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px; /* Garis bawah lebih tebal */
+    bottom: -7px; /* Jarak dari teks lebih jauh */
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-3px); /* Efek hover lebih jelas */
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+main {
+    padding: 0;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1; /* Pastikan main di bawah header */
+}
+
+.hero-banner {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/wallpaper.jpg') no-repeat center center/cover;
+    color: var(--light-text);
+    text-align: center;
+    padding: 150px 20px;
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-content h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4.5rem; /* Ukuran font lebih besar */
+    margin-bottom: 30px;
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.9); /* Bayangan lebih kuat */
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+    opacity: 0.9;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-explore {
+    display: inline-block;
+    background-color: var(--button-bg); /* Warna tombol baru */
+    color: var(--light-text);
+    padding: 20px 40px; /* Padding lebih besar */
+    border-radius: 50px; /* Bentuk kapsul */
+    text-decoration: none;
+    font-size: 1.3rem; /* Ukuran font lebih besar */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transisi lebih banyak */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Bayangan lebih kuat */
+    border: none; /* Hapus border */
+    cursor: pointer;
+}
+
+.btn-explore:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-5px); /* Efek hover lebih menonjol */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6); /* Bayangan lebih kuat */
+}
+
+.features {
+    padding: 100px 20px; /* Padding lebih besar */
+    text-align: center;
+    background-color: var(--bg-dark);
+    color: var(--dark-text); /* Sesuaikan warna teks */
+}
+
+.features h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem; /* Ukuran font lebih besar */
+    margin-bottom: 60px;
+    color: var(--secondary-color); /* Warna judul fitur */
+    text-shadow: 0 0 10px rgba(255, 235, 59, 0.4);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ukuran kartu fitur lebih besar */
+    gap: 20px; /* Jarak antar kartu fitur lebih besar */
+    max-width: 1300px; /* Max width lebih besar */
+    margin: 0 auto;
+}
+
+.feature-item {
+    background-color: #2c2c2c; /* Warna latar belakang kartu fitur lebih gelap */
+    padding: 40px; /* Padding lebih besar */
+    border-radius: 15px; /* Radius border lebih besar */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Bayangan lebih kuat */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #444; /* Border lebih gelap */
+    color: var(--dark-text); /* Warna teks di kartu fitur */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.feature-item:hover {
+    transform: translateY(-10px); /* Efek hover lebih menonjol */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Bayangan lebih kuat */
+}
+
+.feature-item h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem; /* Ukuran font lebih besar */
+    color: var(--secondary-color); /* Warna judul fitur */
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.feature-item p {
+    font-size: 1.15rem; /* Ukuran font lebih besar */
+    color: var(--dark-text);
+}
+
+footer {
+    text-align: center;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--dark-text);
+    margin-top: 0;
+    font-size: 1rem;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+}
+
+.footer-section h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.footer-section p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--dark-text);
+    margin-bottom: 10px;
+}
+
+.footer-section p i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+.social-icons a {
+    color: var(--light-text);
+    font-size: 1.8rem;
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    background-color: #0d0d0d;
+    color: #999;
+    padding: 15px 20px;
+    font-size: 0.85rem;
+    border-top: 1px solid #222;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .hero-content h2 {
+        font-size: 3.5rem;
+    }
+    .hero-content p {
+        font-size: 1.3rem;
+    }
+    .features h3 {
+        font-size: 2.8rem;
+    }
+    .feature-item h4 {
+        font-size: 1.8rem;
+    }
+    .feature-grid {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+    nav ul li a {
+        font-size: 1rem;
+    }
+    .hero-banner {
+        padding: 100px 15px;
+        min-height: 400px;
+    }
+    .hero-content h2 {
+        font-size: 2.8rem;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    .btn-explore {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+    .features {
+        padding: 60px 15px;
+    }
+    .features h3 {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+    .feature-item {
+        padding: 30px;
+    }
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 15px;
+    }
+    .footer-section {
+        margin: 15px 0;
+        min-width: unset;
+        width: 100%;
+    }
+    .footer-section h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+    .btn-explore {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    .features h3 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Styling for Hero Spotlight Section */
+.hero-spotlight {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: var(--bg-light);
+    color: var(--dark-text);
+}
+
+.hero-spotlight h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px rgba(123, 31, 162, 0.4);
+}
+
+.spotlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.spotlight-card {
+    background: rgba(34, 34, 40, 0.55);
+    border-radius: 28px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 1.5px 8px 0 rgba(0,0,0,0.18);
+    border: 1.5px solid rgba(123, 31, 162, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.35s cubic-bezier(.4,2,.3,1), box-shadow 0.35s, border 0.35s;
+    color: var(--light-text);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 370px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.spotlight-card:hover {
+    transform: translateY(-12px) scale(1.035);
+    box-shadow: 0 16px 40px 0 rgba(123, 31, 162, 0.25), 0 4px 16px 0 rgba(0,0,0,0.22);
+    border: 2.5px solid var(--secondary-color);
+}
+
+.card-content-overlay {
+    position: relative;
+    width: 100%;
+    padding: 28px 24px 22px 24px;
+    box-sizing: border-box;
+    color: var(--light-text);
+    z-index: 2;
+    background: linear-gradient(to top, rgba(20,20,30,0.92) 60%, rgba(20,20,30,0.25) 100%, transparent 100%);
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+    min-height: 120px;
+}
+
+.spotlight-card h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--light-text);
+    margin: 0 0 8px 0;
+    letter-spacing: 1.2px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+.spotlight-card .role-tag {
+    display: inline-block;
+    background: linear-gradient(45deg, #ffd700, #ffed4a);
+    color: #222;
+    padding: 5px 16px;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    margin-left: 8px;
+    box-shadow: 0 2px 8px rgba(123,31,162,0.10);
+    border: 1.2px solid rgba(255,255,255,0.18);
+    text-shadow: 0 1px 6px rgba(255,255,255,0.12);
+    letter-spacing: 0.5px;
+}
+
+.spotlight-card p {
+    font-size: 1.08rem;
+    line-height: 1.6;
+    color: var(--light-text);
+    margin-bottom: 18px;
+    opacity: 0.92;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.13);
+}
+
+.spotlight-card .btn-detail {
+    display: inline-block;
+    background: linear-gradient(90deg, #FFEB3B 0%, #7B1FA2 100%);
+    color: #222;
+    padding: 10px 26px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-size: 1.08rem;
+    font-weight: bold;
+    box-shadow: 0 2px 12px rgba(123,31,162,0.13);
+    border: none;
+    transition: box-shadow 0.3s, filter 0.3s, background 0.3s;
+    filter: brightness(0.98);
+    letter-spacing: 0.5px;
+}
+
+.spotlight-card .btn-detail:hover {
+    box-shadow: 0 6px 24px 0 rgba(255,235,59,0.25), 0 2px 8px 0 rgba(123,31,162,0.18);
+    filter: brightness(1.08) drop-shadow(0 0 6px #FFEB3B);
+    background: linear-gradient(90deg, #FFF176 0%, #7B1FA2 100%);
+    color: #222;
+}
+
+.btn-all-heroes {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 60px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-all-heroes:hover {
+    background-color: #673AB7;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive adjustments for hero spotlight */
+@media (max-width: 768px) {
+    .hero-spotlight {
+        padding: 60px 15px;
+    }
+    .hero-spotlight h3 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+    .spotlight-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .spotlight-card {
+        height: 260px;
+        border-radius: 18px;
+    }
+    .card-content-overlay {
+        padding: 16px 12px 12px 12px;
+        min-height: 80px;
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+    }
+    .spotlight-card h4 {
+        font-size: 1.2rem;
+    }
+    .spotlight-card .role-tag {
+        font-size: 0.8rem;
+        padding: 3px 10px;
+        border-radius: 10px;
+    }
+    .spotlight-card p {
+        font-size: 0.85rem;
+    }
+    .spotlight-card .btn-detail {
+        font-size: 0.9rem;
+        padding: 7px 16px;
+        border-radius: 14px;
+    }
+    .btn-all-heroes {
+        margin-top: 40px;
+    }
+    .freya-card {
+        background-image: url('../images/Fighter/Freya/Freya.png');
+        background-position: center center;
+        background-size: cover;
+    }
+    .freya-card::before {
+        background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+    }
+    .chou-card {
+        background-image: url('../images/Fighter/Chou/Chou.png');
+        background-position: center center;
+        background-size: cover;
+    }
+    .chou-card::before {
+        background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+    }
+}
+
+/* Gaya untuk gambar latar belakang pada kartu Freya */
+.freya-card {
+    background-image: url('../images/Fighter/Freya/Freya.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.freya-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+    z-index: 1;
+}
+
+/* Gaya untuk gambar latar belakang pada kartu Chou */
+.chou-card {
+    background-image: url('../images/Fighter/Chou/Chou.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.chou-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+    z-index: 1;
+}
+
+/* Styling for the hamburger menu */
+.nav-toggle {
+    display: none; /* Sembunyikan checkbox */
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 1.2rem;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100; /* Pastikan di atas konten lain */
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background-color: var(--secondary-color);
+    height: 3px;
+    width: 100%;
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-toggle-label span::before {
+    content: '';
+    top: -10px;
+}
+
+.nav-toggle-label span::after {
+    content: '';
+    top: 10px;
+}
+
+/* Animasi hamburger saat aktif */
+.nav-toggle:checked + .nav-toggle-label span {
+    transform: rotate(45deg);
+}
+
+.nav-toggle:checked + .nav-toggle-label span::before {
+    top: 0;
+    transform: rotate(0);
+    opacity: 0;
+}
+
+.nav-toggle:checked + .nav-toggle-label span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+/* Menyembunyikan menu di mobile secara default */
+@media (max-width: 768px) {
+    nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--bg-dark); /* Warna latar belakang menu mobile */
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%); /* Sembunyikan di luar layar */
+        transition: transform 0.3s ease-in-out;
+        z-index: 99;
+        padding-top: 60px; /* Jarak dari header */
+        box-sizing: border-box;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        margin: 0;
+    }
+
+    nav ul li a {
+        font-size: 1.5rem;
+        padding: 10px 0;
+        display: block;
+    }
+
+    /* Tampilkan menu saat checkbox aktif */
+    .nav-toggle:checked ~ nav {
+        transform: translateX(0); /* Tampilkan menu */
+    }
+
+    /* Tampilkan label hamburger dan sembunyikan nav default di mobile */
+    .nav-toggle-label {
+        display: flex;
+    }
+
+    /* Sembunyikan elemen nav standar di desktop */
+    nav {
+        display: flex; /* Override default display:none untuk mobile */
+    }
+}
+
+/* Pastikan navigasi terlihat di desktop */
+@media (min-width: 769px) {
+    .nav-toggle-label {
+        display: none; /* Sembunyikan hamburger di desktop */
+    }
+    nav {
+        position: static; /* Kembali ke posisi normal di desktop */
+        height: auto;
+        width: auto;
+        transform: none; /* Hapus transformasi */
+        padding-top: 0;
+    }
+    nav ul {
+        flex-direction: row;
+        margin: 5px 0 0;
+        gap: 30px;
+    }
+}
+
+/* Styling for Login Section */
+.login-section {
+    padding: 80px 20px;
+    background-color: var(--bg-dark);
+    text-align: center;
+    color: var(--dark-text);
+}
+
+.login-container {
+    background-color: #2c2c2c;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    max-width: 450px;
+    margin: 0 auto;
+    border: 1px solid #444;
+}
+
+.login-container h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255, 235, 59, 0.4);
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-form label {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--dark-text);
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: #3a3a3a;
+    color: var(--light-text);
+    font-size: 1rem;
+    box-sizing: border-box; /* Penting untuk padding */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(123, 31, 162, 0.3);
+}
+
+.btn-login {
+    display: block;
+    width: 100%;
+    background-color: var(--button-bg);
+    color: var(--light-text);
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+.btn-login:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.register-link {
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: #bbb;
+}
+
+.register-link a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive adjustments for Login Section */
+@media (max-width: 768px) {
+    .login-section {
+        padding: 60px 15px;
+    }
+
+    .login-container {
+        padding: 30px 25px;
+    }
+
+    .login-container h3 {
+        font-size: 2rem;
+    }
+
+    .login-form label,
+    .login-form input,
+    .btn-login {
+        font-size: 1rem;
+    }
+
+    .btn-login {
+        padding: 12px 15px;
+    }
+
+    .register-link {
+        font-size: 0.85rem;
+    }
+}
+
+/* --- AUTHENTICATION PAGE (Login/Register Slide) Styles --- */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Pastikan mengisi viewport height */
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('../images/wallpaper.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    padding: 60px 20px; /* Padding atas bawah untuk menjaga jarak dari header/footer */
+    box-sizing: border-box;
+}
+
+.auth-wrapper {
+    background-color: var(--bg-light);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Penting untuk efek slide */
+    border: 1px solid #333;
+}
+
+.auth-wrapper h3 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--secondary-color);
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 8px rgba(255, 235, 59, 0.3);
+}
+
+.auth-selector {
+    display: flex;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--primary-color);
+}
+
+.selector-btn {
+    flex: 1;
+    padding: 15px 0;
+    background-color: var(--bg-dark);
+    color: var(--dark-text);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.selector-btn:hover {
+    background-color: #333;
+}
+
+/* Hide actual radio buttons */
+.auth-wrapper input[type="radio"] {
+    display: none;
+}
+
+/* Style when login tab is checked */
+.auth-wrapper input[type="radio"]#login-tab:checked ~ .auth-selector .selector-btn[for="login-tab"] {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+/* Style when register tab is checked */
+.auth-wrapper input[type="radio"]#register-tab:checked ~ .auth-selector .selector-btn[for="register-tab"] {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+.auth-forms {
+    display: flex;
+    width: 200%; /* Dua kali lebar untuk dua form */
+    transition: transform 0.5s ease; /* Efek slide */
+}
+
+.auth-container {
+    width: 50%; /* Setiap form mengambil setengah dari 200% */
+    flex-shrink: 0; /* Penting agar tidak menyusut */
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Slide effect */
+.auth-wrapper input[type="radio"]#register-tab:checked ~ .auth-forms {
+    transform: translateX(-50%); /* Geser ke kiri untuk menampilkan register */
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--dark-text);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: 1px solid #777; /* Mengubah border agar lebih terlihat */
+    border-radius: 5px;
+    background-color: #2a2a2a; /* Mengubah background menjadi lebih gelap */
+    color: var(--light-text);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input[type="text"]:focus,
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 8px rgba(255, 235, 59, 0.4);
+}
+
+.btn-submit {
+    display: inline-block;
+    background-color: var(--button-bg);
+    color: var(--light-text);
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments for auth page */
+@media (max-width: 600px) {
+    .auth-wrapper {
+        padding: 20px;
+        margin: 0 10px; /* Sedikit margin samping */
+    }
+
+    .auth-wrapper h3 {
+        font-size: 1.8rem;
+    }
+
+    .selector-btn {
+        font-size: 1rem;
+        padding: 12px 0;
+    }
+
+    .auth-form input[type="text"],
+    .auth-form input[type="email"],
+    .auth-form input[type="password"] {
+        padding: 10px;
+    }
+
+    .btn-submit {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+}
+
+/* Message Alerts */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInSlideDown 0.5s forwards;
+}
+
+.alert-success {
+    background-color: #28a745; /* Green for success */
+    color: var(--light-text);
+}
+
+.alert-error {
+    background-color: #dc3545; /* Red for error */
+    color: var(--light-text);
+}
+
+@keyframes fadeInSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Perbaikan untuk memastikan semua elemen interaktif berfungsi */
+.btn-explore,
+.btn-detail,
+.btn-all-heroes,
+nav ul li a,
+.social-icons a,
+.spotlight-card {
+    cursor: pointer;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* Memastikan tombol di spotlight card bisa diklik */
+.spotlight-card .btn-detail {
+    position: relative;
+    z-index: 15;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Memastikan overlay tidak menghalangi interaksi */
+.card-content-overlay {
+    position: relative;
+    z-index: 15;
+    pointer-events: auto;
+}
+
+/* Memastikan gradient overlay tidak menghalangi interaksi */
+.spotlight-card::before {
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Perbaikan untuk mobile menu */
+.nav-toggle-label {
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 100;
+}
+
+nav {
+    pointer-events: auto;
+}
+
+nav ul li a {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Memastikan social icons bisa diklik */
+.social-icons a {
+    display: inline-block;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Perbaikan untuk feature items */
+.feature-item {
+    pointer-events: auto;
+    cursor: default;
+}
+
+/* Memastikan semua link berfungsi */
+a {
+    pointer-events: auto;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Perbaikan untuk button hover states */
+.btn-explore:hover,
+.btn-login:hover,
+.btn-submit:hover,
+.btn-detail:hover,
+.btn-all-heroes:hover,
+.social-icons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+h2 {
+    border-bottom: none !important;
+}
+
+/* Responsive grid khusus untuk news-section */
+.news-section .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+}
+.news-section .feature-item {
+    margin-bottom: 0;
+}
+@media (max-width: 900px) {
+    .news-section .feature-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 600px) {
+    .news-section .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    .news-section {
+        padding: 32px 0 24px 0 !important;
+    }
+    .news-section .feature-item {
+        margin-bottom: 18px;
+        padding: 18px 10px !important;
+        font-size: 0.97rem;
+    }
+    .news-section h2 {
+        font-size: 1.3rem !important;
+        margin-bottom: 22px !important;
+    }
+}
+
+.lunox-card {
+    background-image: url('../images/HERO/Mage/Lunox/100_1785f547a0d65857cdd756fd248932ed.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    /* Override background dari .spotlight-card jika ada */
+    background-color: transparent !important;
+}
+.lunox-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+    z-index: 1;
+}
+
+/* Hero Detail Card (detailhero.php) */
+.hero-detail-card {
+  background: #232b4a;
+  color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 260px;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
+}
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-info {
+  padding: 16px 14px 18px 14px;
+}
+.hero-name {
+  margin: 12px 0 4px 0;
+  font-size: 1.6em;
+  font-weight: 600;
+  text-align: center;
+}
+.hero-roles {
+  color: #b0b8d0;
+  font-size: 1.05em;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.hero-roles span {
+  margin-right: 6px;
+  background: #2e3a5e;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.98em;
+}
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+  margin-top: 8px;
+}
+.stat {
+  text-align: center;
+  min-width: 60px;
+}
+.stat-value {
+  color: #ffe082;
+  font-size: 1.15em;
+  font-weight: 600;
+  display: block;
+}
+.stat-label {
+  display: block;
+  color: #b0b8d0;
+  font-size: 0.92em;
+  margin-top: 2px;
+}
+.stat-refresh {
+  margin-left: auto;
+  color: #b0b8d0;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.stat-refresh:hover {
+  color: #ffe082;
+}
+.hero-section-title {
+  margin: 18px 0 8px 0;
+  font-size: 1.08em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+}
+.hero-section-title i {
+  color: #b0d0ff;
+  font-size: 1.1em;
+}
+.hero-desc {
+  background: #2e3a5e;
+  color: #b0d0ff;
+  padding: 10px 10px 10px 10px;
+  border-radius: 6px;
+  font-size: 1em;
+  margin-top: 6px;
+  text-align: left;
+  min-height: 48px;
+  word-break: break-word;
+}
+
+/* Hero roles as icons */
+.hero-roles-icon {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.role-icon-img {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2e3a5e;
+  border-radius: 6px;
+  padding: 3px 6px;
+  height: 32px;
+}
+.role-icon-img img {
+  height: 24px;
+  width: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Hero stats bar horizontal */
+.hero-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 8px;
+}
+.hero-stats {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+}
+.stat {
+  text-align: center;
+  min-width: 60px;
+}
+.stat-value {
+  color: #ffe082;
+  font-size: 1.15em;
+  font-weight: 600;
+  display: block;
+}
+.stat-label {
+  display: block;
+  color: #b0b8d0;
+  font-size: 0.92em;
+  margin-top: 2px;
+}
+.stat-refresh {
+  color: #b0b8d0;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-left: 8px;
+}
+.stat-refresh:hover {
+  color: #ffe082;
+}
+
+.counter-hero-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.counter-hero-ui-card {
+  display: flex;
+  align-items: flex-start;
+  background: linear-gradient(120deg, #232b4a 80%, #2e3a5e 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13);
+  padding: 22px 30px;
+  gap: 32px;
+  border: 2px solid transparent;
+  transition: box-shadow 0.25s, border 0.25s, transform 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+.counter-hero-ui-card:hover {
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22);
+  border: 2px solid #4fc3f7;
+  transform: translateY(-2px) scale(1.012);
+}
+.counter-hero-ui-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  background: radial-gradient(circle at 80% 20%, rgba(79,195,247,0.08) 0%, rgba(35,43,74,0.0) 80%);
+}
+.counter-hero-imgbox {
+  flex: 0 0 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.counter-hero-imgbox img {
+  width: 110px;
+  height: 110px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.22);
+  background: #181c23;
+  border: 2.5px solid #4fc3f7;
+  transition: border 0.2s;
+}
+.counter-hero-ui-card:hover .counter-hero-imgbox img {
+  border: 2.5px solid #fff;
+}
+.counter-hero-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1;
+}
+.counter-hero-name-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.counter-hero-name {
+  font-size: 1.32em;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px #1a2028;
+}
+.counter-hero-roles .role-icon-img {
+  height: 26px;
+  width: 26px;
+  margin-right: 2px;
+  vertical-align: middle;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #4fc3f7 0%, #232b4a 100%);
+  padding: 2.5px;
+  box-shadow: 0 1px 4px 0 rgba(79,195,247,0.18);
+  border: 1.5px solid #fff;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.counter-hero-ui-card:hover .role-icon-img {
+  box-shadow: 0 2px 8px 0 #4fc3f7;
+  border: 1.5px solid #4fc3f7;
+}
+.counter-hero-desc-ui {
+  background: linear-gradient(120deg, #2e3a5e 80%, #3a4a7e 100%);
+  color: #b0d0ff;
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 1.08em;
+  line-height: 1.7;
+  min-height: 60px;
+  box-shadow: 0 2px 8px 0 rgba(79,195,247,0.08);
+  border-left: 4px solid #4fc3f7;
+  transition: border 0.2s;
+}
+.counter-hero-ui-card:hover .counter-hero-desc-ui {
+  border-left: 4px solid #fff;
+}
+.counter-hero-empty {
+  color: #b0b8d0;
+  font-style: italic;
+  margin-top: 18px;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .counter-hero-ui-card {
+    gap: 16px;
+    padding: 14px 6px;
+  }
+  .counter-hero-imgbox img {
+    width: 80px;
+    height: 80px;
+  }
+}
+@media (max-width: 700px) {
+  .counter-hero-ui-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px 2px;
+  }
+  .counter-hero-imgbox img {
+    width: 70px;
+    height: 70px;
+  }
+  .counter-hero-desc-ui {
+    padding: 12px 8px;
+    font-size: 1em;
+  }
+}
+
+.counter-hero-horizontal-card {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  background: #232b4a;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13);
+  padding: 24px 32px;
+  gap: 0;
+  border: 1.5px solid #3a4a7e;
+  transition: box-shadow 0.25s, border 0.25s, transform 0.18s;
+  position: relative;
+  overflow: hidden;
+  min-height: 170px;
+}
+.counter-hero-horizontal-left {
+  flex: 0 0 180px;
+  min-width: 140px;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 0 18px 0;
+  background: none;
+}
+.counter-hero-horizontal-imgbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #232b4a 70%, #2e3a5e 100%);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px 0 rgba(79,195,247,0.10);
+  padding: 16px 12px;
+  border: 2.5px solid #4fc3f7;
+  transition: box-shadow 0.22s, border 0.22s, background 0.22s;
+  margin-bottom: 0;
+}
+.counter-hero-horizontal-imgbox img {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.18);
+  background: #181c23;
+  border: none;
+  display: block;
+}
+.counter-hero-horizontal-name {
+  font-size: 1.18em;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
+.counter-hero-horizontal-roles .role-icon-img {
+  height: 22px;
+  width: 22px;
+  margin-right: 2px;
+  vertical-align: middle;
+  border-radius: 5px;
+  background: #2e3a5e;
+  padding: 2px;
+  border: 1.5px solid #4fc3f7;
+  box-shadow: 0 1px 4px 0 rgba(79,195,247,0.10);
+}
+.counter-hero-horizontal-desc-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0 32px;
+}
+.counter-hero-horizontal-desc {
+  background: #2e3a5e;
+  color: #b0d0ff;
+  border-radius: 8px;
+  padding: 18px 20px;
+  font-size: 1.08em;
+  line-height: 1.7;
+  min-height: 80px;
+  border-left: 4px solid #4fc3f7;
+  box-shadow: 0 1px 4px 0 rgba(79,195,247,0.08);
+  width: 100%;
+  overflow-wrap: break-word;
+}
+@media (max-width: 900px) {
+  .counter-hero-horizontal-card {
+    padding: 12px 2px;
+  }
+  .counter-hero-horizontal-left {
+    flex: 0 0 120px;
+    min-width: 80px;
+    max-width: 140px;
+    padding: 8px 0 8px 0;
+  }
+  .counter-hero-horizontal-imgbox {
+    padding: 8px 4px;
+  }
+  .counter-hero-horizontal-imgbox img {
+    width: 60px;
+    height: 60px;
+  }
+  .counter-hero-horizontal-desc-col {
+    padding-left: 12px;
+  }
+}
+@media (max-width: 700px) {
+  .counter-hero-horizontal-card {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    gap: 0;
+    padding: 8px 0;
+  }
+  .counter-hero-horizontal-left {
+    flex: none;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0 0 0 0;
+  }
+  .counter-hero-horizontal-desc-col {
+    padding: 0 8px;
+  }
+  .counter-hero-horizontal-desc {
+    padding: 10px 8px;
+    font-size: 1em;
+    min-height: 40px;
+  }
+}
+.counter-hero-horizontal-card:hover .counter-hero-horizontal-imgbox {
+  box-shadow: 0 6px 24px 0 #4fc3f7;
+  border: 2.5px solid #fff;
+  background: linear-gradient(135deg, #2e3a5e 60%, #4fc3f7 100%);
+}
+
+.counter-box {
+  border: 1.5px solid #6fa3e6;
+  border-radius: 10px;
+  background: rgba(40,60,110,0.18);
+  margin-bottom: 28px;
+  padding: 18px 24px;
+  box-shadow: 0 2px 12px 0 rgba(79,195,247,0.08);
+}
+.counter-title {
+  font-size: 1.18em;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.counter-desc {
+  color: #dbe8ff;
+  font-size: 1.04em;
+  margin-bottom: 12px;
+}
+.counter-hero-img-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.counter-hero-img-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.counter-hero-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin-right: 6px;
+  background: #222;
+  display: inline-block;
+  vertical-align: middle;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.counter-hero-img:last-child {
+  margin-right: 0;
+}
+.counter-hero-img-desc {
+  color: #b0d0ff;
+  font-size: 0.92em;
+  text-align: center;
+  margin-top: 2px;
+  max-width: 70px;
+  word-break: break-word;
+}
+.counter-hero-img:hover {
+  border: 2.5px solid #fff;
+  box-shadow: 0 4px 16px 0 #4fc3f7;
+}
+@media (max-width: 600px) {
+  .counter-hero-img {
+    width: 36px;
+    height: 36px;
+  }
+} 
